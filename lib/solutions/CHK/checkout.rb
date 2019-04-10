@@ -19,10 +19,18 @@ class Checkout
       3.times { items.delete_at(items.index('A')) }
       bundles << 130
     end
+
+    loop do
+      break if items.count('B') < 2
+      2.times { items.delete_at(items.index('B')) }
+      bundles << 45
+    end
+
     return bundles
   end
 
 end
+
 
 
 
