@@ -7,9 +7,14 @@ prices = {
   'D' => 15
 }
 
+deals = [
+  {'item' => 'A', 'quantity' => 3, 'price' => 130},
+  {'item' => 'B', 'quantity' => 2, 'price' => 45}
+]
+
 describe Checkout do
 
-  subject { Checkout.new(prices) }
+  subject { Checkout.new(prices: prices, deals: deals) }
 
   context "prices individual items" do
     it "prices up A" do
@@ -72,5 +77,6 @@ describe Checkout do
   end
 
 end
+
 
 

@@ -1,7 +1,8 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
-  def initialize(prices)
+  def initialize(prices:, deals:)
     @prices = prices
+    @deals = deals
   end
 
   def checkout(skus)
@@ -14,6 +15,15 @@ class Checkout
 
   def create_bundles(items)
     bundles = []
+
+    @deals.each do |deal|
+      loop do
+        break if items.count(deal['item']) < deal['quantity']
+        deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
+        bundles << 130
+      end
+    end
+
     loop do
       break if items.count('A') < 3
       3.times { items.delete_at(items.index('A')) }
@@ -30,6 +40,7 @@ class Checkout
   end
 
 end
+
 
 
 
