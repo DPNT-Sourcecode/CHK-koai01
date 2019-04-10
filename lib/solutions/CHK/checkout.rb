@@ -14,6 +14,7 @@ class Checkout
   end
 
   def checkout(skus)
+    return -1 if skus.empty?
     items = skus.to_s.split('')
     bundles = create_bundles(items)
     items.map! { |x| @prices[x] }
@@ -36,6 +37,7 @@ class Checkout
   end
 
 end
+
 
 
 

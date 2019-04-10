@@ -35,6 +35,10 @@ describe Checkout do
   end
 
   context "detects invalid items" do
+    it "detects null basket" do
+      expect(subject.checkout("")).to eq (-1)
+    end
+
     it "returns -1 when a single invalid item passed in" do
       expect(subject.checkout('Z')).to eq (-1)
     end
@@ -77,6 +81,7 @@ describe Checkout do
   end
 
 end
+
 
 
 
