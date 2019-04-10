@@ -14,8 +14,8 @@ class Checkout
   end
 
   def checkout(skus)
-    return -1 if skus.empty?
     items = skus.to_s.split('')
+    return -1 if items.empty?
     bundles = create_bundles(items)
     items.map! { |x| @prices[x] }
     items.each { |x| return -1 if x.nil? }
@@ -37,6 +37,7 @@ class Checkout
   end
 
 end
+
 
 
 
