@@ -20,26 +20,15 @@ class Checkout
       loop do
         break if items.count(deal['item']) < deal['quantity']
         deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
-        bundles << 130
+        bundles << deal['price']
       end
-    end
-
-    loop do
-      break if items.count('A') < 3
-      3.times { items.delete_at(items.index('A')) }
-      bundles << 130
-    end
-
-    loop do
-      break if items.count('B') < 2
-      2.times { items.delete_at(items.index('B')) }
-      bundles << 45
     end
 
     return bundles
   end
 
 end
+
 
 
 
