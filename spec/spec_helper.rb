@@ -2,7 +2,9 @@ require 'require_all'
 
 require 'simplecov'
 require 'simplecov-csv'
+require 'simplecov-console'
 SimpleCov.formatter = SimpleCov::Formatter::CSVFormatter
+SimpleCov.formatter = SimpleCov::Formatter::Console
 SimpleCov.start
 
 def require_solution(solution_name)
