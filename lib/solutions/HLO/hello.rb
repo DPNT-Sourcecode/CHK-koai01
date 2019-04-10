@@ -2,8 +2,9 @@
 class Hello
 
   def hello(name)
-    raise 'Not implemented'
+    return "Hello, World!"
   end
 
 end
+
 
