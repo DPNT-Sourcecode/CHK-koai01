@@ -5,15 +5,11 @@ class Checkout
   end
 
   def checkout(skus)
-    # if skus == 'A'
-    #   return 50
-    # else
-    #   return 30
-    # end
-
-    return @prices[skus]
+    return -1 if @prices[skus].nil?
+    @prices[skus]
   end
 
 end
+
 
 
