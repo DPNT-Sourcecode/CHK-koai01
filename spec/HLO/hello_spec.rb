@@ -5,4 +5,3 @@ describe Hello do
     expect(subject.hello("name")).to eq("Hello, World!")
   end
 end
-

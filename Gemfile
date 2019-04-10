@@ -16,4 +16,3 @@ gem 'rake'
 
 gem 'simplecov-console'
 gem 'simplecov'
-
