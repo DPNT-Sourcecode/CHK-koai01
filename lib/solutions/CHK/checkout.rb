@@ -9,14 +9,20 @@ class Checkout
     bundles = create_bundles(items)
     items.map! { |x| @prices[x] }
     items.each { |x| return -1 if x.nil? }
-    return items.reduce(:+)
+    return (items + bundles).reduce(:+)
   end
 
   def create_bundles(items)
-    if items.count('A') >= 3
-      items.
+    bundles = []
+    loop do
+      break if items.count('A') < 3
+      3.times { items.delete_at(items.index('A')) }
+      bundles << 130
+    end
+    return bundles
   end
 
 end
+
 
 
