@@ -9,4 +9,3 @@ describe Hello do
     expect(subject.hello("John")).to eq("Hello, John!")
   end
 end
-
