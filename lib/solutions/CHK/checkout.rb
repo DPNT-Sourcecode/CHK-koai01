@@ -6,15 +6,17 @@ class Checkout
 
   def checkout(skus)
     items = skus.to_s.split('')
-    create_bundles(items)
+    bundles = create_bundles(items)
     items.map! { |x| @prices[x] }
     items.each { |x| return -1 if x.nil? }
     return items.reduce(:+)
   end
 
   def create_bundles(items)
-    p items.count('A') >= 3
+    if items.count('A') >= 3
+      items.
   end
 
 end
+
 
