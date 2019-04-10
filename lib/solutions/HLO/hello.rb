@@ -1,8 +1,9 @@
 # noinspection RubyUnusedLocalVariable
 class Hello
 
-  def hello(friend_name)
+  def hello(name)
     raise 'Not implemented'
   end
 
 end
+
