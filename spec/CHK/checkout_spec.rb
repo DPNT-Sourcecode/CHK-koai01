@@ -14,7 +14,7 @@ deals = [
 
 describe Checkout do
 
-  subject { Checkout.new(prices: prices, deals: deals) }
+  subject { Checkout.new }
 
   context "prices individual items" do
     it "prices up A" do
@@ -77,6 +77,7 @@ describe Checkout do
   end
 
 end
+
 
 
 

@@ -1,8 +1,16 @@
 # noinspection RubyUnusedLocalVariable
 class Checkout
-  def initialize(prices:, deals:)
-    @prices = prices
-    @deals = deals
+  def initialize
+    @prices = {
+      'A' => 50,
+      'B' => 30,
+      'C' => 20,
+      'D' => 15
+    }
+    @deals = [
+      {'item' => 'A', 'quantity' => 3, 'price' => 130},
+      {'item' => 'B', 'quantity' => 2, 'price' => 45}
+    ]
   end
 
   def checkout(skus)
@@ -28,6 +36,7 @@ class Checkout
   end
 
 end
+
 
 
 
