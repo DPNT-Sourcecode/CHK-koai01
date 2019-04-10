@@ -57,4 +57,11 @@ describe Checkout do
     end
   end
 
+  context "prices bundles" do
+    it "prices up 3A" do
+      expect(subject.checkout('AAA')).to eq (130)
+    end
+  end
+
 end
+
