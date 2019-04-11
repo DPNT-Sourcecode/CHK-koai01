@@ -21,7 +21,8 @@ class Checkout
     price_multi_item_bundles
     price_bundles
     price_individual_items
-    @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
+    @basket.cost += (@basket.items.reduce(:+)) unless @basket.items.empty?
+    @basket.cost += (@basket.bundles.reduce(:+)) unless @basket.bundles.empty?
   end
 
   def price_bundles
@@ -84,3 +85,4 @@ class Checkout
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
