@@ -1,28 +1,13 @@
 require './lib/solutions/CHK/checkout.rb'
 
 describe Shop do
-  context "prices individual items" do
-    it "prices up A" do
+  context "individual items" do
+    it "prices up individual items" do
       expect(subject.checkout('A')).to eq(50)
-    end
-
-    it "prices up B" do
       expect(subject.checkout('B')).to eq (30)
-    end
-
-    it "prices up C" do
       expect(subject.checkout('C')).to eq (20)
-    end
-
-    it "prices up D" do
       expect(subject.checkout('D')).to eq (15)
-    end
-
-    it "prices up E" do
       expect(subject.checkout('E')).to eq(40)
-    end
-
-    it "prices up F" do
       expect(subject.checkout('F')).to eq(10)
     end
   end
@@ -103,5 +88,6 @@ describe Shop do
     end
   end
 end
+
 
 
