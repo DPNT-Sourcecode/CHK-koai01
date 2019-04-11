@@ -65,7 +65,8 @@ class Checkout
     @basket.items.each do |item|
       if @deals.cross_item_deals[0]['items'].include?(item)
         multi_items << item
-        @basket.items.delete_at(@basket.items.index(item))
+        p @basket.items.index(item)
+        @basket.items.slice!(@basket.items.index(item))
       end
     end
     p @basket.items
@@ -86,5 +87,6 @@ class Checkout
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
 
