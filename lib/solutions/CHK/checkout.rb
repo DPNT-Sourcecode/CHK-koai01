@@ -20,7 +20,7 @@ class Checkout
   end
 
   def checkout(skus)
-    items = skus.to_s.split('')
+    Basket.new(skus)
     return 0 if items.empty?
     bundles = create_bundles(items)
     items.map! { |x| @prices[x] }
@@ -59,3 +59,4 @@ class Checkout
     bundles << deal['bonus_item_price']
   end
 end
+
