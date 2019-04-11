@@ -99,8 +99,8 @@ describe Checkout do
       expect(subject.checkout('EEEBBBBAAAAAD')).to eq(410)
     end
   end
-
 end
+
 
 
 

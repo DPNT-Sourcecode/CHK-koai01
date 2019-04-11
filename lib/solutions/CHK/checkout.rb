@@ -35,7 +35,7 @@ class Checkout
         deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
         bundles << deal['price']
 
-        unless deal['bonus_item'].nil?
+        unless deal['bonus_item'].nil? || items.count(deal['bonus_item']) < deal['bonus_item_quantity']
           p deal['bonus_item']
           deal['bonus_item_quantity'].times { items.delete_at(items.index(deal['bonus_item']))}
           bundles << deal['bonus_item_price']
@@ -44,10 +44,11 @@ class Checkout
       end
     end
 
+    p "bundles is:" bundles
     return bundles
   end
-
 end
+
 
 
 
