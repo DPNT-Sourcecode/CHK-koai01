@@ -1,4 +1,4 @@
-require './lib/solutions/CHK/shop.rb'
+require './lib/solutions/CHK/checkout.rb'
 
 prices = {
   'A' => 50,
@@ -115,3 +115,4 @@ describe Shop do
     end
   end
 end
+

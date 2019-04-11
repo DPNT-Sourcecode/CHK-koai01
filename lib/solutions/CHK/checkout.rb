@@ -1,15 +1,10 @@
 # noinspection RubyUnusedLocalVariable
 require_relative 'basket'
+require_relative 'pricelist'
+
 class Shop
   def initialize
-    @prices = {
-      'A' => 50,
-      'B' => 30,
-      'C' => 20,
-      'D' => 15,
-      'E' => 40,
-      'F' => 10
-    }
+    @prices = Pricelist.new
     @deals = [
       {'item' => 'E', 'quantity' => 2, 'price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
       {'item' => 'A', 'quantity' => 5, 'price' => 200, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
@@ -62,10 +57,11 @@ class Shop
   end
 
   def price_individual_items
-    @basket.items.map! { |x| @prices[x] }
+    @basket.items.map! { |x| @prices.pricelist[x] }
   end
 
   def valid_basket
-    @basket.items.each { |x| return false unless @prices.key?(x) }
+    @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
