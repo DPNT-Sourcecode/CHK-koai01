@@ -11,9 +11,11 @@ class Shop
 
   def checkout(skus)
     @basket = Basket.new(skus)
+    p @basket
     return -1 unless valid_basket
     return 0 if @basket.items.empty?
     price_basket
+    p @basket
     return @basket.cost
   end
 
@@ -59,3 +61,4 @@ class Shop
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
