@@ -95,8 +95,13 @@ describe Checkout do
       expect(subject.checkout('EEB')).to eq(80)
     end
 
+    it "prices up 2E without a B" do
+      expect(subject.checkout('EE')).to eq(80)
+    end
+
     it "prices up Es with bonus Bs" do
       expect(subject.checkout('EEEBBBBAAAAAD')).to eq(410)
     end
   end
 end
+

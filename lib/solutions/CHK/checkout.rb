@@ -35,7 +35,7 @@ class Checkout
         deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
         bundles << deal['price']
 
-        unless deal['bonus_item'].nil? || items.count(deal['bonus_item']) < deal['bonus_item_quantity']
+        if bonus_items_present (items, deal)
           deal['bonus_item_quantity'].times { items.delete_at(items.index(deal['bonus_item']))}
           bundles << deal['bonus_item_price']
         end
@@ -47,6 +47,14 @@ class Checkout
   def qualify_for_deal(items, deal)
     items.count(deal['item']) >= deal['quantity']
   end
+
+  def bonus_items_present (items, deal)
+    deal['bonus_item'].nil? || items.count(deal['bonus_item']) < deal['bonus_item_quantity']
+  end
+
+
+
 end
+
 
 
