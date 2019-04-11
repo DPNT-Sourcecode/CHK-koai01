@@ -63,9 +63,10 @@ class Checkout
   def price_multi_item_bundles
     multi_items = []
     @basket.items.each do |item|
-      if @deals.cross_item_deals.include?(item)
-        multi_items << item 
+      if @deals.cross_item_deals[0]['items'].include?(item)
+        multi_items << item
         @basket.items.delete_at(@basket.items.index(item))
+      end
     end
     p multi_items
   end
@@ -74,6 +75,7 @@ class Checkout
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
 
 
