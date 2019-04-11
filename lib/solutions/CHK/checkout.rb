@@ -8,6 +8,7 @@ class Checkout
       'D' => 15
     }
     @deals = [
+      {'item' => 'A', 'quantity' => 5, 'price' => 200},
       {'item' => 'A', 'quantity' => 3, 'price' => 130},
       {'item' => 'B', 'quantity' => 2, 'price' => 45}
     ]
@@ -37,3 +38,4 @@ class Checkout
   end
 
 end
+

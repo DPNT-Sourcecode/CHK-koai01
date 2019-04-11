@@ -32,6 +32,10 @@ describe Checkout do
     it "prices up D" do
       expect(subject.checkout('D')).to eq (15)
     end
+
+    it "prices up E" do
+      expect(subject.checkout('E')).to eq(40)
+    end
   end
 
   context "detects invalid items" do
@@ -83,10 +87,15 @@ describe Checkout do
       expect(subject.checkout('AAAAA')).to eq(200)
     end
 
+    it "correctly prices up 9A" do
+      expect(subject.checkout('AAAAAAAAA')).to eq(380)
+    end
+
     it "prices up '2E get one B free'" do
       expect(subject.checkout('EEB')).to eq(80)
     end
   end
 
 end
+
 
