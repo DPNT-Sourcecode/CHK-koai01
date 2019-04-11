@@ -18,7 +18,6 @@ class Checkout
 
   def checkout(skus)
     items = skus.to_s.split('')
-    p items
     return 0 if items.empty?
     bundles = create_bundles(items)
     items.map! { |x| @prices[x] }
@@ -56,10 +55,8 @@ class Checkout
     deal['bonus_item_quantity'].times { items.delete_at(items.index(deal['bonus_item']))}
     bundles << deal['bonus_item_price']
   end
-
-
-
 end
+
 
 
 
