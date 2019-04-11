@@ -35,7 +35,8 @@ class Shop
     @deals.each do |deal|
       loop do
         break unless qualify_for_deal(deal)
-        price_bundle_items(@basket.items, deal, bundles)
+        price_bundle_items(deal)
+        price_bonus_items(deal) unless insufficient_bonus_items(deal)
       end
     end
 
@@ -55,18 +56,19 @@ class Shop
     items.count(deal['item']) >= deal['quantity']
   end
 
-  def insufficient_bonus_items(items, deal)
-    deal['bonus_item'].nil? || items.count(deal['bonus_item']) < deal['bonus_item_quantity']
+  def insufficient_bonus_items(deal)
+    deal['bonus_item'].nil? || @basket.items.count(deal['bonus_item']) < deal['bonus_item_quantity']
   end
 
-  def price_bundle_items(items, deal, bundles)
-    deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
-    bundles << deal['price']
+  def price_bundle_items(deal)
+    deal['quantity'].times { @basket.items.delete_at(@basket.items.index(deal['item'])) }
+    @basket.bundles << deal['price']
   end
 
-  def price_bonus_items(items, deal, bundles)
-    deal['bonus_item_quantity'].times { items.delete_at(items.index(deal['bonus_item']))}
-    bundles << deal['bonus_item_price']
+  def price_bonus_items(deal)
+    deal['bonus_item_quantity'].times { @basket.items.delete_at(@basket.items.index(deal['bonus_item']))}
+    @basket.bundles << deal['bonus_item_price']
   end
 end
+
 
