@@ -21,6 +21,7 @@ class Shop
 
   def checkout(skus)
     @basket = Basket.new(skus)
+    return 0 if @basket.items.empty?
     create_bundles
     @basket.items.map! { |x| @prices[x] }
     @basket.items.each { |x| return -1 if x.nil? }
@@ -77,6 +78,7 @@ class Shop
     @basket.bundles << deal['bonus_item_price']
   end
 end
+
 
 
 
