@@ -1,6 +1,6 @@
 # noinspection RubyUnusedLocalVariable
 require_relative 'basket'
-class Checkout
+class Shop
   def initialize
     @prices = {
       'A' => 50,

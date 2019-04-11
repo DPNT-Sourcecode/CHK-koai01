@@ -1,4 +1,4 @@
-require './lib/solutions/CHK/checkout.rb'
+require './lib/solutions/CHK/shop.rb'
 
 prices = {
   'A' => 50,
@@ -12,10 +12,7 @@ deals = [
   {'item' => 'B', 'quantity' => 2, 'price' => 45}
 ]
 
-describe Checkout do
-
-  subject { Checkout.new }
-
+describe Shop do
   context "prices individual items" do
     it "prices up A" do
       expect(subject.checkout('A')).to eq(50)
