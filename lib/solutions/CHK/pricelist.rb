@@ -1,4 +1,5 @@
 class Pricelist
+  attr_reader :pricelist
   def initialize
     @pricelist = {
       'A' => 50,
@@ -10,3 +11,4 @@ class Pricelist
     }
   end
 end
+

@@ -5,13 +5,7 @@ require_relative 'pricelist'
 class Shop
   def initialize
     @prices = Pricelist.new
-    @deals = [
-      {'item' => 'E', 'quantity' => 2, 'price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
-      {'item' => 'A', 'quantity' => 5, 'price' => 200, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
-      {'item' => 'A', 'quantity' => 3, 'price' => 130, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
-      {'item' => 'B', 'quantity' => 2, 'price' => 45, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
-      {'item' => 'F', 'quantity' => 3, 'price' => 20, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil}
-    ]
+    @deals = Deals.new
   end
 
   def checkout(skus)
@@ -29,7 +23,7 @@ class Shop
   end
 
   def price_bundles
-    @deals.each do |deal|
+    @deals.deal_list.each do |deal|
       loop do
         break unless qualify_for_deal(deal)
         price_bundle_items(deal)
@@ -64,4 +58,5 @@ class Shop
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
