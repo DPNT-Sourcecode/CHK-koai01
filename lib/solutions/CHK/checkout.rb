@@ -11,7 +11,8 @@ class Checkout
     @deals = [
       {'item' => 'A', 'quantity' => 5, 'price' => 200},
       {'item' => 'A', 'quantity' => 3, 'price' => 130},
-      {'item' => 'B', 'quantity' => 2, 'price' => 45}
+      {'item' => 'B', 'quantity' => 2, 'price' => 45},
+      {'item' => 'E', 'quantity' => 2, 'price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0}
     ]
   end
 
@@ -33,7 +34,7 @@ class Checkout
         deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
         bundles << deal['price']
         if deal['item'] == 'E' && items.include?('B')
-          items.delete_at(items.index(deal['B']))
+          items.delete_at(items.index('B'))
           bundles << 0
         end
       end
@@ -43,6 +44,7 @@ class Checkout
   end
 
 end
+
 
 
 
