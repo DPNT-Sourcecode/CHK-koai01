@@ -23,9 +23,7 @@ class Shop
     @basket = Basket.new(skus)
     return -1 unless valid_basket
     return 0 if @basket.items.empty?
-    price_bundles
-    price_individual_items
-    @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
+    price_basket
     return @basket.cost
 
 
@@ -35,6 +33,12 @@ class Shop
     # items.map! { |x| @prices[x] }
     # items.each { |x| return -1 if x.nil? }
     # return (items + bundles).reduce(:+)
+  end
+
+  def price_basket
+    price_bundles
+    price_individual_items
+    @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
   end
 
   def price_bundles
@@ -85,11 +89,3 @@ class Shop
     true
   end
 end
-
-
-
-
-
-
-
-

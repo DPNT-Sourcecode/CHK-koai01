@@ -8,7 +8,3 @@ class Basket
   end
 
 end
-
-
-
-
