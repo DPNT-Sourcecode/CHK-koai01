@@ -32,6 +32,10 @@ class Checkout
         break if items.count(deal['item']) < deal['quantity']
         deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
         bundles << deal['price']
+        if deal['item'] == 'E' && items.include?('B')
+          items.delete_at(items.index(deal['B']))
+          bundles << 0
+        end
       end
     end
 
@@ -39,5 +43,6 @@ class Checkout
   end
 
 end
+
 
 
