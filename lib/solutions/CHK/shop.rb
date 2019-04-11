@@ -25,14 +25,6 @@ class Shop
     return 0 if @basket.items.empty?
     price_basket
     return @basket.cost
-
-
-    # items = skus.to_s.split('')
-    # return 0 if items.empty?
-    # bundles = create_bundles(items)
-    # items.map! { |x| @prices[x] }
-    # items.each { |x| return -1 if x.nil? }
-    # return (items + bundles).reduce(:+)
   end
 
   def price_basket
@@ -49,17 +41,6 @@ class Shop
         price_bonus_items(deal) unless insufficient_bonus_items(deal)
       end
     end
-
-    # bundles = []
-    #
-    # @deals.each do |deal|
-    #   loop do
-    #     break unless qualify_for_deal(items, deal)
-    #     price_bundle_items(items, deal, bundles)
-    #     price_bonus_items(items, deal, bundles) unless insufficient_bonus_items(items, deal)
-    #   end
-    # end
-    # return bundles
   end
 
   def qualify_for_deal(deal)
@@ -86,6 +67,6 @@ class Shop
 
   def valid_basket
     @basket.items.each { |x| return false unless @prices.key?(x) }
-    true
   end
 end
+
