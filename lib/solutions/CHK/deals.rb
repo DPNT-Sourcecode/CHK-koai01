@@ -22,6 +22,7 @@ class Deals
       {'item' => 'V', 'quantity' => 2, 'bundle_price' => 90, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil}
     ]
     calculate_discount_value
+    sort_deals_by_discount
   end
 
   def calculate_discount_value
@@ -33,7 +34,12 @@ class Deals
       end
     end
   end
+
+  def sort_deals_by_discount
+    @deal_list.sort_by! { |deal| deal['discount_value'] }.reverse!
+  end
 end
+
 
 
 
