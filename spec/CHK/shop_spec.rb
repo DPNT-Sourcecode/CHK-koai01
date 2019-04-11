@@ -3,12 +3,32 @@ require './lib/solutions/CHK/checkout.rb'
 describe Shop do
   context "individual items" do
     it "prices up individual items" do
-      expect(subject.checkout('A')).to eq(50)
+      expect(subject.checkout('A')).to eq (50)
       expect(subject.checkout('B')).to eq (30)
       expect(subject.checkout('C')).to eq (20)
       expect(subject.checkout('D')).to eq (15)
-      expect(subject.checkout('E')).to eq(40)
-      expect(subject.checkout('F')).to eq(10)
+      expect(subject.checkout('E')).to eq (40)
+      expect(subject.checkout('F')).to eq (10)
+      expect(subject.checkout('G')).to eq (20)
+      expect(subject.checkout('H')).to eq (10)
+      expect(subject.checkout('I')).to eq (35)
+      expect(subject.checkout('J')).to eq (60)
+      expect(subject.checkout('K')).to eq (80)
+      expect(subject.checkout('L')).to eq (90)
+      expect(subject.checkout('M')).to eq (15)
+      expect(subject.checkout('N')).to eq (40)
+      expect(subject.checkout('O')).to eq (10)
+      expect(subject.checkout('P')).to eq (50)
+      expect(subject.checkout('Q')).to eq (30)
+      expect(subject.checkout('R')).to eq (50)
+      expect(subject.checkout('S')).to eq (30)
+      expect(subject.checkout('T')).to eq (20)
+      expect(subject.checkout('U')).to eq (40)
+      expect(subject.checkout('V')).to eq (50)
+      expect(subject.checkout('W')).to eq (20)
+      expect(subject.checkout('X')).to eq (90)
+      expect(subject.checkout('Y')).to eq (10)
+      expect(subject.checkout('Z')).to eq (50)
     end
   end
 
@@ -18,7 +38,7 @@ describe Shop do
     end
 
     it "returns -1 when a single invalid item passed in" do
-      expect(subject.checkout('Z')).to eq (-1)
+      expect(subject.checkout('z')).to eq (-1)
     end
 
     it "detects numeric elements" do
@@ -30,7 +50,7 @@ describe Shop do
     end
 
     it "detects multiple invalid items" do
-      expect(subject.checkout('XYZ')).to eq (-1)
+      expect(subject.checkout('xyz')).to eq (-1)
     end
   end
 
@@ -88,6 +108,7 @@ describe Shop do
     end
   end
 end
+
 
 
 
