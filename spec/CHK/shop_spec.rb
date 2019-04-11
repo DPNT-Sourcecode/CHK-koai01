@@ -121,12 +121,14 @@ describe Shop do
     expect(subject.checkout('VVV')).to eq(130)
   end
 
-  # it "prices up new bonus items" do
-  #   2E get one B free
-  #   2E get one B free when 2B present
-  #   2F get one F free
-  #   3N get one M free
-  #   3R get one Q free when 3Q present
-  #   3U get one U free
-  # end
+  it "prices up new bonus items" do
+    expect(subject.checkout('EEB')).to eq(40)
+    expect(subject.checkout('EEBB')).to eq(70)
+    expect(subject.checkout('FFF')).to eq(20)
+    expect(subject.checkout('NNNM')).to eq(120)
+    expect(subject.checkout('RRRQ')).to eq(150)
+      expect(subject.checkout('RRRQQQ')).to eq(210)
+    expect(subject.checkout('UUUU')).to eq(120)
+  end
 end
+
