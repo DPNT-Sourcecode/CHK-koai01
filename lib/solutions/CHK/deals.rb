@@ -15,7 +15,7 @@ class Deals
       {'item' => 'B', 'quantity' => 2, 'bundle_price' => 45, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
       {'item' => 'H', 'quantity' => 10, 'bundle_price' => 80, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
       {'item' => 'H', 'quantity' => 5, 'bundle_price' => 45, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
-      {'item' => 'K', 'quantity' => 2, 'bundle_price' => 150, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
+      {'item' => 'K', 'quantity' => 2, 'bundle_price' => 120, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
       {'item' => 'P', 'quantity' => 5, 'bundle_price' => 200, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
       {'item' => 'Q', 'quantity' => 3, 'bundle_price' => 80, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
       {'item' => 'V', 'quantity' => 3, 'bundle_price' => 130, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
@@ -42,3 +42,4 @@ class Deals
     @deal_list.sort_by! { |deal| deal['discount_value'] }.reverse!
   end
 end
+

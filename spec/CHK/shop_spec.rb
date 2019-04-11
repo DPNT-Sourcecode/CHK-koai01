@@ -114,11 +114,13 @@ describe Checkout do
     expect(subject.checkout('BB')).to eq(45)
     expect(subject.checkout('HHHHH')).to eq(45)
     expect(subject.checkout('HHHHHHHHHH')).to eq(80)
-    expect(subject.checkout('KK')).to eq(150)
+    expect(subject.checkout('KK')).to eq(120)
     expect(subject.checkout('PPPPP')).to eq(200)
     expect(subject.checkout('QQQ')).to eq(80)
     expect(subject.checkout('VV')).to eq(90)
     expect(subject.checkout('VVV')).to eq(130)
+    expect(subject.checkout('KKK')).to eq(190)
+    expect(subject.checkout('KKKK')).to eq(240)
   end
 
   it "prices up new bonus items" do
@@ -142,3 +144,4 @@ describe Checkout do
     end
   end
 end
+
