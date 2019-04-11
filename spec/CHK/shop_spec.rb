@@ -142,6 +142,3 @@ describe Checkout do
     end
   end
 end
-
-
-

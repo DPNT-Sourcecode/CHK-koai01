@@ -42,4 +42,3 @@ class Deals
     @deal_list.sort_by! { |deal| deal['discount_value'] }.reverse!
   end
 end
-

@@ -69,13 +69,11 @@ class Checkout
       end
     end
     p multi_items
+    multi_items.sort_by! { |item| @prices.pricelist[item] }.reverse!
+    p multi_items
   end
 
   def valid_basket
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
-
-
-
-

@@ -31,5 +31,3 @@ class Pricelist
     }
   end
 end
-
-

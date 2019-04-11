@@ -6,4 +6,3 @@ describe Deals do
     expect(subject.cross_item_deals).to be_an_instance_of(Array)
   end
 end
-
