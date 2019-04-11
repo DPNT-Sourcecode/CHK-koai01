@@ -20,25 +20,35 @@ class Shop
   end
 
   def checkout(skus)
-    items = skus.to_s.split('')
-    return 0 if items.empty?
-    bundles = create_bundles(items)
-    items.map! { |x| @prices[x] }
-    items.each { |x| return -1 if x.nil? }
-    return (items + bundles).reduce(:+)
+    @basket = Basket.new(skus)
+    create_bundles
+
+    # items = skus.to_s.split('')
+    # return 0 if items.empty?
+    # bundles = create_bundles(items)
+    # items.map! { |x| @prices[x] }
+    # items.each { |x| return -1 if x.nil? }
+    # return (items + bundles).reduce(:+)
   end
 
-  def create_bundles(items)
-    bundles = []
-
+  def create_bundles
     @deals.each do |deal|
       loop do
-        break unless qualify_for_deal(items, deal)
-        price_bundle_items(items, deal, bundles)
-        price_bonus_items(items, deal, bundles) unless insufficient_bonus_items(items, deal)
+        break unless qualify_for_deal(deal)
+        price_bundle_items(@basket.items, deal, bundles)
       end
     end
-    return bundles
+
+    # bundles = []
+    #
+    # @deals.each do |deal|
+    #   loop do
+    #     break unless qualify_for_deal(items, deal)
+    #     price_bundle_items(items, deal, bundles)
+    #     price_bonus_items(items, deal, bundles) unless insufficient_bonus_items(items, deal)
+    #   end
+    # end
+    # return bundles
   end
 
   def qualify_for_deal(items, deal)
@@ -59,3 +69,4 @@ class Shop
     bundles << deal['bonus_item_price']
   end
 end
+
