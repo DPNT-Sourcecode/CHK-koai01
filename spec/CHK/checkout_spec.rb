@@ -106,7 +106,11 @@ describe Checkout do
     it "prices up Es with bonus Bs" do
       expect(subject.checkout('EEEBBBBAAAAAD')).to eq(410)
     end
+
+    it "prices up 2F and 3F correctly" do
+      expect(subject.checkout('FF')).to eq(20)
+      expect(subject.checkout('FFF')).to eq(20)
+      expect(subject.checkout('FFFFF')).to eq(40)
+    end
   end
 end
-
-

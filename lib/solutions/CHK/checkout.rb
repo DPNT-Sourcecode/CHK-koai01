@@ -1,4 +1,5 @@
 # noinspection RubyUnusedLocalVariable
+require_relative 'basket'
 class Checkout
   def initialize
     @prices = {
@@ -58,10 +59,3 @@ class Checkout
     bundles << deal['bonus_item_price']
   end
 end
-
-
-
-
-
-
-
