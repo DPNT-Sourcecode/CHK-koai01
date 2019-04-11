@@ -32,10 +32,11 @@ class Checkout
     @deals.each do |deal|
       loop do
         break unless qualify_for_deal(items, deal)
-        deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
-        bundles << deal['price']
+        move_items_to_bundles_array(items, deal, bundles)
+        # deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
+        # bundles << deal['price']
 
-        if bonus_items_present (items, deal)
+        unless insufficient_bonus_items(items, deal)
           deal['bonus_item_quantity'].times { items.delete_at(items.index(deal['bonus_item']))}
           bundles << deal['bonus_item_price']
         end
@@ -48,13 +49,19 @@ class Checkout
     items.count(deal['item']) >= deal['quantity']
   end
 
-  def bonus_items_present (items, deal)
+  def insufficient_bonus_items(items, deal)
     deal['bonus_item'].nil? || items.count(deal['bonus_item']) < deal['bonus_item_quantity']
+  end
+
+  def move_items_to_bundles_array(items, deal, bundles)
+    deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
+    bundles << deal['price']
   end
 
 
 
 end
+
 
 
 
