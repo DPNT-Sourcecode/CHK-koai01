@@ -61,26 +61,26 @@ class Checkout
   end
 
   def price_multi_item_bundles
-    # multi_items = []
     @deals.cross_item_deals[0]['items'].each do |item|
       if @basket.items.include?(item)
-        @basket.items.count(item).times { multi_items << item }
+        @basket.items.count(item).times { @basket.cross_item_bundles << item }
         @basket.items.delete(item)
       end
     end
-    multi_items.sort_by! { |item| @prices.pricelist[item] }.reverse!
+    @basket.cross_item_bundles.sort_by! { |item| @prices.pricelist[item] }.reverse!
     loop do
-      break if multi_items.length < 3
-      3.times { multi_items.delete_at(0) }
-      @basket.cost += 45
+      break if @basket.cross_item_bundles.length < @deals.cross_item_deals[0]['quantity']
+      @deals.cross_item_deals[0]['quantity'].times { @basket.cross_item_bundles.delete_at(0) }
+      @basket.cost += @deals.cross_item_deals[0]['bundle_price']
     end
-    @basket.items.concat(multi_items)
+    @basket.items.concat(@basket.cross_item_bundles)
   end
 
   def valid_basket
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
 
 
