@@ -22,6 +22,11 @@ class Shop
   def checkout(skus)
     @basket = Basket.new(skus)
     create_bundles
+    @basket.items.map! { |x| @prices[x] }
+    @basket.items.each { |x| return -1 if x.nil? }
+    @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
+    return @basket.cost
+
 
     # items = skus.to_s.split('')
     # return 0 if items.empty?
@@ -52,8 +57,8 @@ class Shop
     # return bundles
   end
 
-  def qualify_for_deal(items, deal)
-    items.count(deal['item']) >= deal['quantity']
+  def qualify_for_deal(deal)
+    @basket.items.count(deal['item']) >= deal['quantity']
   end
 
   def insufficient_bonus_items(deal)
@@ -70,5 +75,6 @@ class Shop
     @basket.bundles << deal['bonus_item_price']
   end
 end
+
 
 
