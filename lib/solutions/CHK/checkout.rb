@@ -59,5 +59,3 @@ class Checkout
     bundles << deal['bonus_item_price']
   end
 end
-
-
