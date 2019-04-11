@@ -61,11 +61,16 @@ class Checkout
   end
 
   def price_multi_item_bundles
-    
+    multi_items = []
+    @basket.items.each do |item|
+      multi_items.push @basket.items.delete_at(@basket.items.index(item))
+    end
+
   end
 
   def valid_basket
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
