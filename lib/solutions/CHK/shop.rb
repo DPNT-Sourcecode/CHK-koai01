@@ -21,10 +21,11 @@ class Shop
 
   def checkout(skus)
     @basket = Basket.new(skus)
+    @basket.items.each { |x| return -1 unless @prices.key?(x) }
     return 0 if @basket.items.empty?
     create_bundles
-    @basket.items.map! { |x| @prices[x] }
-    @basket.items.each { |x| return -1 if x.nil? }
+    price_individual_items
+
     p @basket.items
     p @basket.bundles
     @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
@@ -77,7 +78,12 @@ class Shop
     deal['bonus_item_quantity'].times { @basket.items.delete_at(@basket.items.index(deal['bonus_item']))}
     @basket.bundles << deal['bonus_item_price']
   end
+
+  def price_individual_items
+    @basket.items.map! { |x| @prices[x] }
+  end
 end
+
 
 
 
