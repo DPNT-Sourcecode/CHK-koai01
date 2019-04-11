@@ -40,14 +40,14 @@ class Checkout
           deal['bonus_item_quantity'].times { items.delete_at(items.index(deal['bonus_item']))}
           bundles << deal['bonus_item_price']
         end
-
       end
+      p items
+      p bundles
     end
-
-    p "bundles is:" bundles
     return bundles
   end
 end
+
 
 
 
