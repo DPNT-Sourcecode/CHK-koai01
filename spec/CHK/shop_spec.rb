@@ -131,4 +131,11 @@ describe Checkout do
     expect(subject.checkout('UUUU')).to eq(120)
     expect(subject.checkout('UUUUUUUUUU')).to eq(320)
   end
+
+  context "prices cross-item deals" do
+    it "prices in order taking most expensive where possible" do
+      expect(subject.checkout('STXYZ')).to eq(82)
+    end
+  end
 end
+

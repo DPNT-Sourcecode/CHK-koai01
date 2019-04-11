@@ -18,6 +18,7 @@ class Checkout
   end
 
   def price_basket
+    price_multi_item_bundles
     price_bundles
     price_individual_items
     @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
@@ -59,7 +60,12 @@ class Checkout
     @basket.items.map! { |x| @prices.pricelist[x] }
   end
 
+  def price_multi_item_bundles
+    
+  end
+
   def valid_basket
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
