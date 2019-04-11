@@ -24,6 +24,8 @@ class Shop
     create_bundles
     @basket.items.map! { |x| @prices[x] }
     @basket.items.each { |x| return -1 if x.nil? }
+    p @basket.items
+    p @basket.bundles
     @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
     return @basket.cost
 
@@ -75,6 +77,7 @@ class Shop
     @basket.bundles << deal['bonus_item_price']
   end
 end
+
 
 
 
