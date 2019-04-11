@@ -13,7 +13,7 @@ describe Checkout do
       expect(subject.checkout('H')).to eq (10)
       expect(subject.checkout('I')).to eq (35)
       expect(subject.checkout('J')).to eq (60)
-      expect(subject.checkout('K')).to eq (80)
+      expect(subject.checkout('K')).to eq (70)
       expect(subject.checkout('L')).to eq (90)
       expect(subject.checkout('M')).to eq (15)
       expect(subject.checkout('N')).to eq (40)
@@ -21,14 +21,14 @@ describe Checkout do
       expect(subject.checkout('P')).to eq (50)
       expect(subject.checkout('Q')).to eq (30)
       expect(subject.checkout('R')).to eq (50)
-      expect(subject.checkout('S')).to eq (30)
+      expect(subject.checkout('S')).to eq (20)
       expect(subject.checkout('T')).to eq (20)
       expect(subject.checkout('U')).to eq (40)
       expect(subject.checkout('V')).to eq (50)
       expect(subject.checkout('W')).to eq (20)
-      expect(subject.checkout('X')).to eq (90)
-      expect(subject.checkout('Y')).to eq (10)
-      expect(subject.checkout('Z')).to eq (50)
+      expect(subject.checkout('X')).to eq (17)
+      expect(subject.checkout('Y')).to eq (20)
+      expect(subject.checkout('Z')).to eq (21)
     end
   end
 
@@ -138,4 +138,5 @@ describe Checkout do
     end
   end
 end
+
 
