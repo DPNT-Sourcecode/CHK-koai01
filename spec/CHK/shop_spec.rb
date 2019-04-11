@@ -129,8 +129,10 @@ describe Shop do
     expect(subject.checkout('RRRQ')).to eq(150)
     expect(subject.checkout('RRRQQQ')).to eq(210)
     expect(subject.checkout('UUUU')).to eq(120)
+    expect(subject.checkout('UUUUUUUUUU')).to eq(320)
   end
 end
+
 
 
 
