@@ -6,7 +6,9 @@ class Basket
     @bundles = []
     @individual_items = []
   end
+
 end
+
 
 
 

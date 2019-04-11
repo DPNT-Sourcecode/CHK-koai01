@@ -23,7 +23,7 @@ class Shop
     @basket = Basket.new(skus)
     return -1 unless valid_basket
     return 0 if @basket.items.empty?
-    create_bundles
+    price_bundles
     price_individual_items
     @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
     return @basket.cost
@@ -37,7 +37,7 @@ class Shop
     # return (items + bundles).reduce(:+)
   end
 
-  def create_bundles
+  def price_bundles
     @deals.each do |deal|
       loop do
         break unless qualify_for_deal(deal)
@@ -80,11 +80,12 @@ class Shop
     @basket.items.map! { |x| @prices[x] }
   end
 
-  def check_valid_basket
-
-    @basket.items.each { |x| return -1 unless @prices.key?(x) }
+  def valid_basket
+    @basket.items.each { |x| return false unless @prices.key?(x) }
+    true
   end
 end
+
 
 
 
