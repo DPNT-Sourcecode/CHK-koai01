@@ -21,11 +21,11 @@ class Deals
       {'item' => 'V', 'quantity' => 3, 'bundle_price' => 130, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
       {'item' => 'V', 'quantity' => 2, 'bundle_price' => 90, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil}
     ]
+    calculate_discount_value
   end
 
   def calculate_discount_value
     @deal_list.each do |deal|
-      p deal['item']
       if deal['bonus_item'].nil?
         deal['discount_value'] = (@prices.pricelist[deal['item']] * deal['quantity']) - deal['bundle_price']
       else
@@ -34,6 +34,7 @@ class Deals
     end
   end
 end
+
 
 
 
