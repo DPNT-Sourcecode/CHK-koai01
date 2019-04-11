@@ -34,7 +34,11 @@ class Shop
   end
 
   def qualify_for_deal(deal)
-    @basket.items.count(deal['item']) >= deal['quantity']
+    if deal['bonus_item'].nil?
+      return true if @basket.items.count(deal['item']) >= deal['quantity']
+    else
+      return true if @basket.items.count(deal['bonus_item']) >= deal['bonus_item_quantity']
+    end
   end
 
   def insufficient_bonus_items(deal)
@@ -59,6 +63,7 @@ class Shop
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
 
 
