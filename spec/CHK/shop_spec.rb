@@ -1,6 +1,6 @@
 require './lib/solutions/CHK/checkout.rb'
 
-describe Shop do
+describe Checkout do
   context "individual items" do
     it "prices up individual items" do
       expect(subject.checkout('A')).to eq (50)

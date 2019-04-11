@@ -3,7 +3,7 @@ require_relative 'basket'
 require_relative 'pricelist'
 require_relative 'deals'
 
-class Shop
+class Checkout
   def initialize
     @prices = Pricelist.new
     @deals = Deals.new
@@ -63,9 +63,3 @@ class Shop
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
-
-
-
-
-
-
