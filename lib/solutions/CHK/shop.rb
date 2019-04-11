@@ -21,13 +21,10 @@ class Shop
 
   def checkout(skus)
     @basket = Basket.new(skus)
-    @basket.items.each { |x| return -1 unless @prices.key?(x) }
+    return -1 unless valid_basket
     return 0 if @basket.items.empty?
     create_bundles
     price_individual_items
-
-    p @basket.items
-    p @basket.bundles
     @basket.cost += ((@basket.items + @basket.bundles).reduce(:+))
     return @basket.cost
 
@@ -82,7 +79,13 @@ class Shop
   def price_individual_items
     @basket.items.map! { |x| @prices[x] }
   end
+
+  def check_valid_basket
+
+    @basket.items.each { |x| return -1 unless @prices.key?(x) }
+  end
 end
+
 
 
 
