@@ -132,7 +132,3 @@ describe Shop do
     expect(subject.checkout('UUUUUUUUUU')).to eq(320)
   end
 end
-
-
-
-
