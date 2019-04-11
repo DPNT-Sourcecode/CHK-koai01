@@ -78,6 +78,15 @@ describe Checkout do
     it "prices up 2B" do
       expect(subject.checkout('BB')).to eq (45)
     end
+
+    it "prices up 5A for 200" do
+      expect(subject.checkout('AAAAA')).to eq(200)
+    end
+
+    it "prices up '2E get one B free'" do
+      expect(subject.checkout('EEB')).to eq(80)
+    end
   end
 
 end
+
