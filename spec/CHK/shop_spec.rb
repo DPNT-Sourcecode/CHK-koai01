@@ -107,7 +107,24 @@ describe Shop do
       expect(subject.checkout('FFFFFAAAAAEEB')).to eq(320)
     end
   end
+
+  it "prices up new bundles" do
+    3A for 130, 5A for 200
+    2B for 45
+    2E get one B free
+    2F get one F free
+    5H for 45, 10H for 80
+    2K for 150
+    3N get one M free
+    5P for 200
+    3Q for 80
+    3R get one Q free
+    3U get one U free
+    2V for 90, 3V for 130
+
+  end
 end
+
 
 
 
