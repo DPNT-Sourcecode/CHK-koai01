@@ -1,17 +1,5 @@
 require './lib/solutions/CHK/checkout.rb'
 
-prices = {
-  'A' => 50,
-  'B' => 30,
-  'C' => 20,
-  'D' => 15
-}
-
-deals = [
-  {'item' => 'A', 'quantity' => 3, 'price' => 130},
-  {'item' => 'B', 'quantity' => 2, 'price' => 45}
-]
-
 describe Shop do
   context "prices individual items" do
     it "prices up A" do
@@ -115,4 +103,5 @@ describe Shop do
     end
   end
 end
+
 
