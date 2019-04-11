@@ -1,6 +1,7 @@
 # noinspection RubyUnusedLocalVariable
 require_relative 'basket'
 require_relative 'pricelist'
+require_relative 'deals'
 
 class Shop
   def initialize
@@ -58,5 +59,6 @@ class Shop
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
 

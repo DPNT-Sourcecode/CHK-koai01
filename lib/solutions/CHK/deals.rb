@@ -1,4 +1,5 @@
 class Deals
+  attr_reader :deal_list
   def initialize
     @deal_list = [
       {'item' => 'E', 'quantity' => 2, 'price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
