@@ -66,7 +66,7 @@ class Checkout
       if @deals.cross_item_deals[0]['items'].include?(item)
         @basket.items.delete_at(@basket.items.index(item))
         multi_items << item
-        p @basket.items.index(item)
+        # p @basket.items.index(item)
 
       end
     end
@@ -75,6 +75,7 @@ class Checkout
     multi_items.sort_by! { |item| @prices.pricelist[item] }.reverse!
     p multi_items
     loop do
+      p multi_items.length
       break if multi_items.length < 3
       3.times { multi_items.delete_at(0) }
       @basket.cost += 45
@@ -88,6 +89,7 @@ class Checkout
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
 
 
 
