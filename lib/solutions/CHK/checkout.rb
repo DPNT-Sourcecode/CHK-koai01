@@ -31,7 +31,7 @@ class Checkout
 
     @deals.each do |deal|
       loop do
-        break if items.count(deal['item']) < deal['quantity']
+        break unless qualify_for_deal(items, deal)
         deal['quantity'].times { items.delete_at(items.index(deal['item'])) }
         bundles << deal['price']
 
@@ -43,5 +43,10 @@ class Checkout
     end
     return bundles
   end
+
+  def qualify_for_deal(items, deal)
+    items.count(deal['item']) >= deal['quantity']
+  end
 end
+
 
