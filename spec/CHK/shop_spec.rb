@@ -109,21 +109,28 @@ describe Shop do
   end
 
   it "prices up new bundles" do
-    3A for 130, 5A for 200
-    2B for 45
-    2E get one B free
-    2F get one F free
-    5H for 45, 10H for 80
-    2K for 150
-    3N get one M free
-    5P for 200
-    3Q for 80
-    3R get one Q free
-    3U get one U free
-    2V for 90, 3V for 130
-
+    expect(subject.checkout('AAA')).to eq(130)
+    expect(subject.checkout('AAAAA')).to eq(200)
+    expect(subject.checkout('BB')).to eq(45)
+    expect(subject.checkout('HHHHH')).to eq(45)
+    expect(subject.checkout('HHHHHHHHHH')).to eq(80)
+    expect(subject.checkout('KK')).to eq(150)
+    expect(subject.checkout('PPPPP')).to eq(200)
+    expect(subject.checkout('QQQ')).to eq(80)
+    expect(subject.checkout('VV')).to eq(90)
+    expect(subject.checkout('VVV')).to eq(130)
   end
+
+  # it "prices up new bonus items" do
+  #   2E get one B free
+  #   2E get one B free when 2B present
+  #   2F get one F free
+  #   3N get one M free
+  #   3R get one Q free when 3Q present
+  #   3U get one U free
+  # end
 end
+
 
 
 
