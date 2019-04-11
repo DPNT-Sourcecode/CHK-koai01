@@ -141,7 +141,11 @@ describe Checkout do
 
     it "detects multiple of the same item" do
       expect(subject.checkout('SSSTXXXXXYZZZZ')).to eq(214)
+      expect(subject.checkout('STX')).to eq(45)
+      expect(subject.checkout('STXSTX')).to eq(90)
+      expect(subject.checkout('SSS')).to eq(45)
     end
   end
 end
+
 
