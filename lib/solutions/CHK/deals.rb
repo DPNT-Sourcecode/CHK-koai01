@@ -25,12 +25,14 @@ class Deals
 
   def calculate_discount_value
     @deal_list.each do |deal|
-      if deal[:bonus_item].nil?
-        deal[:discount_value] = lambda { (@prices.pricelist[:item]*:quantity)} - deal[:bundle_price]
+      if deal['bonus_item'].nil?
+        p deal['item']
+        deal['discount_value'] = (@prices.pricelist[deal['item']] * deal['quantity']) - deal['bundle_price']
       else
-        deal[:discount_value] = lambda { (@prices.pricelist[:bonus_item]*:bonus_item_quantity)}
+        deal['discount_value'] = (@prices.pricelist[deal['bonus_item']] * deal['bonus_item_quantity'])
       end
     end
   end
 end
+
 
