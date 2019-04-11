@@ -10,4 +10,3 @@ describe Basket do
     expect(subject.individual_items).to be_an_instance_of(Array)
   end
 end
-

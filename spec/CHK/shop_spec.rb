@@ -130,9 +130,3 @@ describe Shop do
   #   3U get one U free
   # end
 end
-
-
-
-
-
-
