@@ -71,9 +71,17 @@ class Checkout
     p multi_items
     multi_items.sort_by! { |item| @prices.pricelist[item] }.reverse!
     p multi_items
+    loop do
+      break if multi_items.length < 3
+      3.times { multi_items.delete_at(0) }
+      @basket.cost += 45
+    end
+    p multi_items
+    @basket.items += multi_items
   end
 
   def valid_basket
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
