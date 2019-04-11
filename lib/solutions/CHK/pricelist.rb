@@ -27,8 +27,9 @@ class Pricelist
       'W' => 20,
       'X' => 17,
       'Y' => 20,
-      'Z' => 50
+      'Z' => 21
     }
   end
 end
+
 

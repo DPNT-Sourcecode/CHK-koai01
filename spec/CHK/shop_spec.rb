@@ -136,7 +136,12 @@ describe Checkout do
     it "prices in order taking most expensive where possible" do
       expect(subject.checkout('STXYZ')).to eq(82)
     end
+
+    it "detects multiple of the same item" do
+      expect(subject.checkout('SSSTXXXXXYZZZZ')).to eq(214)
+    end
   end
 end
+
 
 
