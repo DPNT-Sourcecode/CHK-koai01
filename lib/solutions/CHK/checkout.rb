@@ -5,7 +5,8 @@ class Checkout
       'A' => 50,
       'B' => 30,
       'C' => 20,
-      'D' => 15
+      'D' => 15,
+      'E' => 40
     }
     @deals = [
       {'item' => 'A', 'quantity' => 5, 'price' => 200},
@@ -38,4 +39,5 @@ class Checkout
   end
 
 end
+
 
