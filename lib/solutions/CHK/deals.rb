@@ -3,9 +3,9 @@ require_relative 'pricelist'
 class Deals
   attr_reader :deal_list
   def initialize
-    @prices = Prices.new
+    @prices = Pricelist.new
     @deal_list = [
-      {'item' => 'E', 'quantity' => 2, 'bundle_price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
+      {'item' => 'E', 'quantity' => 2, 'bundle_price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0, 'discount_value' => lambda { (@prices.pricelist[:item]*2)} },
       {'item' => 'F', 'quantity' => 2, 'bundle_price' => 20, 'bonus_item' => 'F', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
       {'item' => 'N', 'quantity' => 3, 'bundle_price' => 120, 'bonus_item' => 'M', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
       {'item' => 'R', 'quantity' => 3, 'bundle_price' => 150, 'bonus_item' => 'Q', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
@@ -23,6 +23,7 @@ class Deals
     ]
   end
 end
+
 
 
 
