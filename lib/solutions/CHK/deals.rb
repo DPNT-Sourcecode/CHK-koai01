@@ -1,7 +1,7 @@
 require_relative 'pricelist'
 
 class Deals
-  attr_reader :deal_list
+  attr_reader :deal_list, :cross_item_deals
   def initialize
     @prices = Pricelist.new
     @deal_list = [
@@ -23,6 +23,9 @@ class Deals
     ]
     calculate_discount_value
     sort_deals_by_discount
+    @cross_item_deals = [
+      {'items' => ['S','T','X','Y','Z'], 'quantity' => 3, 'bundle_price' => 45}
+    ]
   end
 
   def calculate_discount_value
@@ -39,3 +42,4 @@ class Deals
     @deal_list.sort_by! { |deal| deal['discount_value'] }.reverse!
   end
 end
+
