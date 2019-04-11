@@ -69,4 +69,3 @@ class Shop
     @basket.items.each { |x| return false unless @prices.key?(x) }
   end
 end
-
