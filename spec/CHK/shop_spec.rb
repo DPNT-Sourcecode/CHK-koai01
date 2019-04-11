@@ -122,8 +122,8 @@ describe Shop do
   end
 
   it "prices up new bonus items" do
-    expect(subject.checkout('EEB')).to eq(40)
-    expect(subject.checkout('EEBB')).to eq(70)
+    expect(subject.checkout('EEB')).to eq(80)
+    expect(subject.checkout('EEBB')).to eq(110)
     expect(subject.checkout('FFF')).to eq(20)
     expect(subject.checkout('NNNM')).to eq(120)
     expect(subject.checkout('RRRQ')).to eq(150)
@@ -131,4 +131,5 @@ describe Shop do
     expect(subject.checkout('UUUU')).to eq(120)
   end
 end
+
 
