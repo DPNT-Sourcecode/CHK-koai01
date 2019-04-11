@@ -112,5 +112,10 @@ describe Checkout do
       expect(subject.checkout('FFF')).to eq(20)
       expect(subject.checkout('FFFFF')).to eq(40)
     end
+
+    it "prices up F with others" do
+      expect(subject.checkout('FFFFFAAAAAEEB')).to eq(320)
+    end
   end
 end
+
