@@ -9,11 +9,10 @@ class Checkout
       'E' => 40
     }
     @deals = [
+      {'item' => 'E', 'quantity' => 2, 'price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
       {'item' => 'A', 'quantity' => 5, 'price' => 200, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
       {'item' => 'A', 'quantity' => 3, 'price' => 130, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil},
-      {'item' => 'E', 'quantity' => 2, 'price' => 80, 'bonus_item' => 'B', 'bonus_item_quantity' => 1, 'bonus_item_price' => 0},
       {'item' => 'B', 'quantity' => 2, 'price' => 45, 'bonus_item' => nil, 'bonus_item_quantity' => nil, 'bonus_item_price' => nil}
-
     ]
   end
 
@@ -37,14 +36,12 @@ class Checkout
         bundles << deal['price']
 
         unless deal['bonus_item'].nil? || items.count(deal['bonus_item']) < deal['bonus_item_quantity']
-          p deal['bonus_item']
           deal['bonus_item_quantity'].times { items.delete_at(items.index(deal['bonus_item']))}
           bundles << deal['bonus_item_price']
         end
       end
     end
-    p "items: #{items}"
-    p "bundles: #{bundles}"
     return bundles
   end
 end
+
