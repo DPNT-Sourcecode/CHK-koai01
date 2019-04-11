@@ -6,7 +6,7 @@ require_relative 'deals'
 class Shop
   def initialize
     @prices = Pricelist.new
-    @deals = Deals.new
+    @deals = Deals.new.calculate_discount_value
   end
 
   def checkout(skus)
@@ -59,3 +59,4 @@ class Shop
     @basket.items.each { |x| return false unless @prices.pricelist.key?(x) }
   end
 end
+
